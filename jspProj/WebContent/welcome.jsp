@@ -1,26 +1,46 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-  <!-- 링크 렐르 흐 -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+	pageEncoding="UTF-8"%>
+<!-- 링크 렐르 흐 -->
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
 <!DOCTYPE html>
 <html>
 <head>
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="navbar navbar-expand navbar-dark bg-dark">
-		<!-- container : 내용 존재 -->
+	<%@ include file="menu.jsp" %>
+	<%!// 선언문 - 전역변수 할당
+	String greeting = "웹 쇼핑몰에 오신 것을 환영합니다.";
+	String tagline = "Welcome to Web Market!";%>
+	<div class="jumbotron">
 		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/welcome.jsp">Home</a>
-			</div>
+			<h1 class="display-3">
+				<%=greeting%>
+			</h1>
 		</div>
 	</div>
-
-	<h1>종찬이의 홈에 오신 걸 환영합니다!</h1>
-	<%
-		String name = "윤하";
-	%>
-	<h3><%=name %> 참석했습니다~</h3>
+	<div class="container">
+		<div class="text-center">
+			<h3><%=tagline%></h3>
+			<%
+				// 스크립틀릿
+			Date day = new Date();
+			String am_pm;
+			int hour = day.getHours();
+			int minute = day.getMinutes();
+			int second = day.getSeconds();
+			if (hour < 12) {
+				am_pm = "AM";
+			} else {
+				am_pm = "PM";
+				hour = hour - 12;
+			}
+			String CT = hour + " : " + minute + " : " + second + " " + am_pm;
+			out.print("<p>현재 접속 시각: " + CT + "</p>");
+			%>
+		</div>
+	</div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>
