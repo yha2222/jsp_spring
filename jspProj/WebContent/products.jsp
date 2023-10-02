@@ -40,7 +40,7 @@
 			 items : Collection, 배열
 			 varStatus : (생략가능)
 				 - index : 0부터 시작
-				 - count : 1부터 시작
+				 - count : 1부터 시작 언니 어디갔어
 			 -->
 			<c:forEach var="productVO" items="${listOfProducts}"
 						 varStatus="stat">
