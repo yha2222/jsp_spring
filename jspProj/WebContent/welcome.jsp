@@ -23,8 +23,7 @@
 	<div class="container">
 		<div class="text-center">
 			<h3><%=tagline%></h3>
-			<%
-				// 스크립틀릿
+			<% // 스크립틀릿
 			Date day = new Date();
 			String am_pm;
 			int hour = day.getHours();
