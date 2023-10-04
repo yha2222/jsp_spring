@@ -64,8 +64,8 @@ public class ProductVO {
 	public long getUnitsInStock() {
 		return unitsInStock;
 	}
-	public void setUnitsInStock(long i) {
-		this.unitsInStock = i;
+	public void setUnitsInStock(long unitsInStock) {
+		this.unitsInStock = unitsInStock;
 	}
 	public String getCondition() {
 		return condition;

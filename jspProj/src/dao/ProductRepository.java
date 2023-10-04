@@ -7,7 +7,7 @@ import vo.ProductVO;
 // 상품을 저장하고 접근, 관리(In Memory)
 public class ProductRepository {
 	
-	// 싱글톤
+	// 싱글톤 : 메모리에 객체가 1개 생성되어 공유됨 - DB마냥(공유/저장/통합/운영)
 	private static ProductRepository instance = new ProductRepository();
 	//private ProductRepository() {}
 	public static ProductRepository getInstance() {
@@ -73,5 +73,10 @@ public class ProductRepository {
 			}
 		}
 		return productById;
+	}
+	
+	// Insert 처리(상품 추가) 메소드
+	public void addProduct(ProductVO productVO) {
+		listOfProducts.add(productVO); // 세팅해서 던진 VO 타입 매개변수 여기서 받음
 	}
 }
