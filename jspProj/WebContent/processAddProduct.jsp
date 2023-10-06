@@ -1,10 +1,10 @@
 <%@page import="dao.ProductRepository"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@page import="vo.ProductVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <% // 스크립틀릿
 	request.setCharacterEncoding("UTF-8");
 
-	// 파라미터 값의 타입은 String
+	//파라미터 값의 타입은 String
 	String productId = request.getParameter("productId");
 	String pname = request.getParameter("pname");
 	String unitPrice = request.getParameter("unitPrice");
