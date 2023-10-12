@@ -34,7 +34,7 @@
 					<p>${productVO.description}</p>
 					<p>${productVO.unitPrice}원</p>
 					<p>
-						<a href="product.jsp?productId=${productVO.getProductById()}"
+						<a href="./product.jsp?productId=${productVO.getProductById()}"
 						 class="btn btn-secondary" role="button">상세 정보 &raquo;</a>
 					</p>
 				</div>
