@@ -26,11 +26,14 @@
 	<div class="row" align="center">
 		<c:forEach items="${bookList}" var="book">
 			<div class="col-md-4">
+			<img src="<c:url value="/resources/images/${book.bookId}.jpg" />" style="width:60%;" />
 				<h3>${book.name}</h3>
 				<p>${book.author}</p>
 					<br>${book.publisher} | ${book.releaseDate}
 				<p align="left">${fn:substring(book.description, 0, 100)}...</p>
 				<p>${book.unitPrice}원</p>
+				<p><a href="<c:url value="/books/book?id=${book.bookId}" />"
+					class="btn btn-Secondary" role="button">상세정보 &raquo;</a></p>
 			</div>
 		</c:forEach>
 	</div>

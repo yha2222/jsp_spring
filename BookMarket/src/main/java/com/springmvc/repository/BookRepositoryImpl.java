@@ -79,7 +79,46 @@ public class BookRepositoryImpl implements BookRepository {
 		Set<Book> booksByCategory = new HashSet<Book>();
 		
 		Set<String> booksByFilter = filter.keySet();
-		return null;
+		if(booksByFilter.contains("publisher")) {
+			for(int j = 0; j < filter.get("publisher").size(); j++) {
+				String publisherName = filter.get("publisher").get(j);
+				for(int i = 0; i < listOfBooks.size(); i++) {
+					Book book = listOfBooks.get(i);
+					
+					if(publisherName.equalsIgnoreCase(book.getPublisher()))
+						booksByPublisher.add(book);
+				}
+			}
+		}
+		
+		if(booksByFilter.contains("category")) {
+			for(int i = 0; i < filter.get("category").size(); i++) {
+				String category = filter.get("category").get(i);
+				List<Book> list = getBookListByCategory(category);
+				booksByCategory.addAll(list);
+			}
+		}
+		
+		booksByCategory.retainAll(booksByPublisher);
+		return booksByCategory;
+	}
+	
+	public Book getBookById(String bookId) {
+		Book bookInfo = null;
+		for(int i = 0; i < listOfBooks.size(); i++) {
+			Book book = listOfBooks.get(i);
+			if(book != null && book.getBookId() != null && book.getBookId().equals(bookId)) {
+				bookInfo = book;
+				break;
+			}
+		}
+		if(bookInfo == null)
+			throw new IllegalArgumentException("도서 ID가 " + bookId + "인 해당 도서를 찾을 수 없습니다.");
+			return bookInfo;
+	}
+	
+	public void setNewBook(Book book) {
+		listOfBooks.add(book);
 	}
 	
 }
